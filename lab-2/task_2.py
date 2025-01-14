@@ -14,29 +14,45 @@ BOOKS_DATABASE = [
 
 class Book:
     def __init__(self, id_, name, pages):
+        """
+        Инициализация книги.
+
+        :param id: идентификатор книги
+        :param name: название книги
+        :param pages: количество страниц
+        """
         self.id = id_
         self.name = name
         self.pages = pages
 
     def __str__(self):
+        """Возвращает строковое представление книги."""
         return f'Книга "{self.name}"'
 
     def __repr__(self):
+        """Возвращает формальное строковое представление книги."""
         return f'Book(id_={self.id}, name={repr(self.name)}, pages={self.pages})'
 
 
 class Library:
     def __init__(self, books=None):
+        """
+        Инициализация библиотеки.
+
+        :param books: список книг
+        """
         if books is None:
             books = []
         self.books = books
 
     def get_next_book_id(self):
+        """Возвращает идентификатор для следующей книги."""
         if not self.books:
             return 1
         return self.books[-1].id + 1
 
     def get_index_by_book_id(self, book_id):
+        """Возвращает книгу по заданному идентификатору."""
         for index, book in enumerate(self.books):
             if book.id == book_id:
                 return index
