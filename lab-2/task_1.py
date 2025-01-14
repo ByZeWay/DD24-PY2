@@ -14,14 +14,23 @@ BOOKS_DATABASE = [
 
 class Book:
     def __init__(self, id_, name, pages):
+        """
+        Инициализация книги.
+
+        :param id: идентификатор книги
+        :param name: название книги
+        :param pages: количество страниц
+        """
         self.id = id_
         self.name = name
         self.pages = pages
 
     def __str__(self):
+        """Возвращает строковое представление книги."""
         return f'Книга "{self.name}"'
 
     def __repr__(self):
+        """Возвращает формальное строковое представление книги."""
         return f'Book(id_={self.id}, name={repr(self.name)}, pages={self.pages})'
 
 
